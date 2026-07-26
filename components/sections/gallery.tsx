@@ -1,43 +1,111 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { ZoomIn, Camera } from 'lucide-react';
-import { useProfile } from '@/components/profile-context';
+import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { ZoomIn, Camera } from 'lucide-react'
+import { useProfile } from '@/components/profile-context'
+
+// const galleryImages = [
+//   {
+//     src: 'https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900',
+//     alt: 'Soft purple flowers in a quiet field',
+//     label: 'Quiet blooms',
+//   },
+//   {
+//     src: 'https://images.pexels.com/photos/36717/person-people-girl-hair.jpg?auto=compress&cs=tinysrgb&w=900',
+//     alt: 'A calm portrait in soft light',
+//     label: 'Soft light',
+//   },
+//   {
+//     src: 'https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?auto=compress&cs=tinysrgb&w=900',
+//     alt: 'A peaceful path through green trees',
+//     label: 'The path',
+//   },
+//   {
+//     src: 'https://images.pexels.com/photos/255464/pexels-photo-255464.jpeg?auto=compress&cs=tinysrgb&w=900',
+//     alt: 'A cup of tea resting on a wooden table',
+//     label: 'Slow mornings',
+//   },
+// ];
 
 const galleryImages = [
   {
-    src: 'https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=900',
-    alt: 'Soft purple flowers in a quiet field',
-    label: 'Quiet blooms',
+    src: '/images/coffee.face.png',
+    alt: 'Couple holding hands',
+    label: 'Together',
   },
   {
-    src: 'https://images.pexels.com/photos/36717/person-people-girl-hair.jpg?auto=compress&cs=tinysrgb&w=900',
-    alt: 'A calm portrait in soft light',
-    label: 'Soft light',
+    src: 'https://images.pexels.com/photos/2253879/pexels-photo-2253879.jpeg?auto=compress&cs=tinysrgb&w=900',
+    alt: 'Romantic sunset',
+    label: 'Golden Sunset',
   },
   {
-    src: 'https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?auto=compress&cs=tinysrgb&w=900',
-    alt: 'A peaceful path through green trees',
-    label: 'The path',
+    src: '/images/cofi.jpg',
+    alt: 'Heart shaped leaves',
+    label: 'Little Moments',
   },
   {
-    src: 'https://images.pexels.com/photos/255464/pexels-photo-255464.jpeg?auto=compress&cs=tinysrgb&w=900',
-    alt: 'A cup of tea resting on a wooden table',
-    label: 'Slow mornings',
+    src: '/images/couple-4027859_1280.jpg',
+    alt: 'Rose flowers',
+    label: 'Beautiful Roses',
   },
-];
+  {
+    src: '/images/couple-6976409_640.jpg',
+    alt: 'Love letter',
+    label: 'Sweet Words',
+  },
+  {
+    src: '/images/feling.jpg',
+    alt: 'Coffee for two',
+    label: 'Coffee Time',
+  },
+  {
+    src: '/images/hart.jpg',
+    alt: 'Red heart',
+    label: 'Pure Heart',
+  },
+  {
+    src: '/images/kiss.jpg',
+    alt: 'Romantic flowers',
+    label: 'Forever Bloom',
+  },
+  {
+    src: '/images/laptop.webp',
+    alt: 'Romantic lights',
+    label: 'Dream Lights',
+  },
+  {
+    src: '/images/smile.jpg',
+    alt: 'Sunset together',
+    label: 'Endless Journey',
+  },
+  {
+    src: '/images/studi.jpg',
+    alt: 'Sunset together',
+    label: 'Endless Journey',
+  },
+  {
+    src: '/images/studi2.png',
+    alt: 'Sunset together',
+    label: 'Endless Journey',
+  },
+  {
+    src: '/images/camra.jpg',
+    alt: 'Sunset together',
+    label: 'Endless Journey',
+  },
+]
 
 export function Gallery() {
-  const { photo, setPhoto } = useProfile();
-  const fileRef = useRef<HTMLInputElement>(null);
+  const { photo, setPhoto } = useProfile()
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const handleFile = (file?: File) => {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => setPhoto(reader.result as string);
-    reader.readAsDataURL(file);
-  };
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => setPhoto(reader.result as string)
+    reader.readAsDataURL(file)
+  }
 
   return (
     <section id="gallery" className="relative px-6 py-24 sm:py-32">
@@ -56,8 +124,8 @@ export function Gallery() {
             A few quiet moments
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Small, still images — like postcards from a calm afternoon. You
-            can also set your own profile photo here.
+            Small, still images — like postcards from a calm afternoon. You can
+            also set your own profile photo here.
           </p>
         </motion.div>
 
@@ -137,5 +205,5 @@ export function Gallery() {
         </div>
       </div>
     </section>
-  );
+  )
 }
