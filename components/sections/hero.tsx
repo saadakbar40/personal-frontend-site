@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect, useCallback } from 'react';
-import { ArrowDown, Sparkles, Camera } from 'lucide-react';
-import { useProfile } from '@/components/profile-context';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { ArrowDown, Sparkles, Camera } from 'lucide-react'
+import { useProfile } from '@/components/profile-context'
 
 interface Slide {
-  src: string;
-  alt: string;
-  caption: string;
+  src: string
+  alt: string
+  caption: string
 }
 
 const slides: Slide[] = [
@@ -37,40 +37,40 @@ const slides: Slide[] = [
     alt: 'A quiet path through a misty forest',
     caption: 'Paths that lead somewhere calm',
   },
-];
+]
 
-const AUTO_INTERVAL = 3500;
+const AUTO_INTERVAL = 3500
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const [index, setIndex] = useState(0);
-  const { photo, setPhoto } = useProfile();
-  const fileRef = useRef<HTMLInputElement>(null);
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const [index, setIndex] = useState(0)
+  const { photo, setPhoto } = useProfile()
+  const fileRef = useRef<HTMLInputElement>(null)
 
-  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), []);
+  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [])
 
   useEffect(() => {
-    const t = setInterval(next, AUTO_INTERVAL);
-    return () => clearInterval(t);
-  }, [next]);
+    const t = setInterval(next, AUTO_INTERVAL)
+    return () => clearInterval(t)
+  }, [next])
 
   const handleFile = (file?: File) => {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => setPhoto(reader.result as string);
-    reader.readAsDataURL(file);
-  };
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => setPhoto(reader.result as string)
+    reader.readAsDataURL(file)
+  }
 
   const scrollToContent = () =>
     document
       .getElementById('about')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
     <section
@@ -172,8 +172,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="glass-dark mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-white/90"
           >
-            <Sparkles className="h-3.5 w-3.5 text-sky-300" />
-            A little space, made with thought
+            <Sparkles className="h-3.5 w-3.5 text-sky-300" />A little space,
+            made with thought
           </motion.div>
 
           <motion.h1
@@ -185,15 +185,16 @@ export function Hero() {
             Welcome Albisha <span className="inline-block">🌸</span>
           </motion.h1>
 
-          <motion.pgit 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45 }}
             className="mx-auto mt-6 max-w-xl text-balance text-base text-white/90 drop-shadow sm:text-lg md:text-xl md:mx-0"
           >
             Some pages are created with code...
-            <br className="hidden sm:block" /> This one was created with thought.
-          </motion.pgit>
+            <br className="hidden sm:block" /> This one was created with
+            thought.
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -253,5 +254,5 @@ export function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  );
+  )
 }
