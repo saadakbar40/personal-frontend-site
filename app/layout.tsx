@@ -14,12 +14,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://welcome-ayesha.example.com'),
-  title: 'Welcome Ayesha 🌸 — A Thoughtful Little Space',
+  metadataBase: new URL('https://welcome-albisha.example.com'),
+  title: 'Welcome albisha 🌸 — A Thoughtful Little Space',
   description:
     'A small, thoughtful digital experience created with care — a collection of thoughts, memories, interests and beautiful moments, made just for you.',
   keywords: [
-    'Ayesha',
+    'albisha',
     'welcome',
     'personal website',
     'thoughtful',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Saad' }],
   openGraph: {
-    title: 'Welcome Ayesha 🌸',
+    title: 'Welcome albisha 🌸',
     description:
       'Some pages are created with code... this one was created with thought.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Welcome Ayesha 🌸',
+    title: 'Welcome albisha 🌸',
     description:
       'Some pages are created with code... this one was created with thought.',
   },

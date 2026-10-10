@@ -182,10 +182,10 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-balance text-4xl font-semibold tracking-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Welcome Ayesha <span className="inline-block">🌸</span>
+            Welcome Albisha <span className="inline-block">🌸</span>
           </motion.h1>
 
-          <motion.p
+          <motion.pgit 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.45 }}
@@ -193,7 +193,7 @@ export function Hero() {
           >
             Some pages are created with code...
             <br className="hidden sm:block" /> This one was created with thought.
-          </motion.p>
+          </motion.pgit>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

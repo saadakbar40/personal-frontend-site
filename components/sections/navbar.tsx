@@ -51,7 +51,7 @@ export function Navbar() {
           className="flex shrink-0 items-center gap-2 text-lg font-semibold tracking-tight text-white"
         >
           <span>🌸</span>
-          <span>Ayesha</span>
+          <span>Albisha</span>
         </Link>
 
         {/* Desktop nav */}
